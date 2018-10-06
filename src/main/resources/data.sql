@@ -1,0 +1,10 @@
+insert into accountant (branch, date_of_birth, date_of_joining, salary, username, userpass, id) values ('Ghaziabad', '1988-07-04', '2018-09-29', 50000, 'user1', '1234', 1);
+insert into accountant (branch, date_of_birth, date_of_joining, salary, username, userpass, id) values ('Ghaziabad', '1988-07-04', '2018-09-29', 50000, 'user2', '1234', 2);
+insert into accountant (branch, date_of_birth, date_of_joining, salary, username, userpass, id) values ('Ghaziabad', '1988-07-04', '2018-09-29', 50000, 'user3', '1234', 3);
+insert into accountant (branch, date_of_birth, date_of_joining, salary, username, userpass, id) values ('Ghaziabad', '1988-07-04', '2018-09-29', 50000, 'user4', '1234', 4);
+insert into accountant (branch, date_of_birth, date_of_joining, salary, username, userpass, id) values ('Ghaziabad', '1988-07-04', '2018-09-29', 50000, 'user5', '1234', 5);
+insert into accountant (branch, date_of_birth, date_of_joining, salary, username, userpass, id) values ('Ghaziabad', '1988-07-04', '2018-09-29', 50000, 'user6', '1234', 6);
+insert into accountant (branch, date_of_birth, date_of_joining, salary, username, userpass, id) values ('Ghaziabad', '1988-07-04', '2018-09-29', 50000, 'user7', '1234', 7);
+insert into accountant (branch, date_of_birth, date_of_joining, salary, username, userpass, id) values ('Ghaziabad', '1988-07-04', '2018-09-29', 50000, 'user8', '1234', 8);
+insert into accountant (branch, date_of_birth, date_of_joining, salary, username, userpass, id) values ('Ghaziabad', '1988-07-04', '2018-09-29', 50000, 'user9', '1234', 9);
+insert into accountant (branch, date_of_birth, date_of_joining, salary, username, userpass, id) values ('Ghaziabad', '1988-07-04', '2018-09-29', 50000, 'user10','1234', 10);

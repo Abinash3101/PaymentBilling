@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Admin Home</title>
+<script type="text/javascript" th:inline="javascript" th:src="@{/js/ahome.js}"></script>
+<link rel="stylesheet" th:href="@{/css/style.css}"
+	href="../../style/style.css" />
+</head>
+<body style="width: 100%;">
+<div id="outer">
+	<div th:insert="header :: header"></div>
+
+
+	<!-- <%
+String islogin=(String)session.getAttribute("islogin");
+if(islogin==null){
+request.setAttribute("notlogin_msg","Sorry,Please do Login first");
+%>
+<jsp:forward page="index.jsp"></jsp:forward>
+<%
+}
+%> -->
+
+
+	
+
+
+		<div id="main">
+
+
+			<h3 style="color: navy;" align="center">
+				<B>Consultant:- JavaTpoint</B>
+			</h3>
+			<div id="box">
+				<!-- <%
+if(request.getAttribute("msg")!=null){
+String msg=(String)request.getAttribute("msg");
+out.print("<font style='color: navy'><B>");
+out.print(msg);
+out.print("</B></font>");
+}
+%> -->
+				<div th:switch="${message}">
+					<div th:case="'Success'" style="color: red;" id="messageDiv">Operation
+						performed successfully.</div>
+				</div>
+				<form name="myform">
+
+					<table>
+						<tr>
+							<td><font style="color: navy;">Branch:</font></td>
+							<td><select name="branch" id="select">
+									<option>Select a Branch</option>
+									<option>Ghaziabad</option>
+									<option>Noida</option>
+									<option>Delhi</option>
+							</select></td>
+						</tr>
+						<tr>
+							<td><br></td>
+						</tr>
+						<tr>
+							<td><font style="color: navy;">Find:-</font></td>
+							<td><input type="text" style="float:right" name="findName"
+								onkeyup="sendInfo()"></input></td>
+						</tr>
+					</table>
+					<!-- <table
+						style="border-spacing: 5px; padding: 2px"
+						id='myTable'>
+						<tr>
+							<td><a href='#'
+								onmouseover='javascript:viewAllInfo(this.name)'><B>ID</B></a></td>
+							<td><B>Name</B></td>
+							<td><B>Salary</B></td>
+						</tr>
+						<tr th:each="accountant : ${accountants}">
+							<td><a href='#' onmouseover='javascript:viewAll(this.name)'><span th:text="${accountant.id}"> ID </span></a></td>
+							<td><span th:text="${accountant.username}"> Name </span></td>
+							<td><span th:text="${accountant.salary}"> Salary </span></td>
+						</tr>
+					</table> -->
+					<div id="right" align="right">
+
+						<a th:href="@{/createAccountant}"><font style="color: navy;"><B>Create
+									New Accountant</B></font></a>
+					</div>
+
+					<div id="location" align="left"></div>
+				</form>
+
+				<div id="bottom" align="justify"></div>
+				<div id="getgeninfo" align="justify"></div>
+			</div>
+
+		</div>
+		<!-- <br> -->
+		<div th:insert="footer :: footer"></div>
+</div>
+	</body>
+
+</html>

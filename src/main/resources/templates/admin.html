@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<title>
+			Welcome Page
+		</title>
+		<link rel="stylesheet" th:href="@{/css/style.css}"
+              href="../../style/style.css" />
+	</head>
+	<body>
+	<div id="outer">
+	<div id="header">
+			
+				<div id="logo">
+					<h1>
+						Payment Billing System
+					</h1>
+				</div>	
+		</div>
+			<div id="banner">
+				<div class="captions">
+					<h2>Sign in</h2>
+				</div>
+				<!-- <img src="images/banner.jpg" alt="" /> -->
+				<img th:src="@{/images/banner.jpg}"/>
+			
+			</div>
+			
+			<div id="nav">
+					<ul>
+						<li class="first">
+							<a href="#">Home</a>
+						</li>
+						<li>
+							<a href="#">New Registration</a>
+						</li>
+						<li>
+							<a href="#">Modify Detail</a>
+						</li>
+						<li>
+							<a href="#">Administrator</a>
+						</li>
+						
+						<li>
+							<a href="#">Contact us</a>
+						</li>
+					</ul><br class="clear" />
+				</div>
+
+
+<!-- <% 
+					if(request.getAttribute("notlogin_msg")!=null){
+					out.print("<font size='2' color='red' m>");
+					out.print(request.getAttribute("notlogin_msg"));
+					out.print("</font>");
+					}
+					%> -->
+				
+				
+				
+				<!-- <% 
+					if(request.getAttribute("Error")!=null){
+					out.print("<font size='2' color='red' m>");
+					out.print(request.getAttribute("Error"));
+					out.print("</font>");
+					}
+					%> -->
+<div id="main">
+
+<table style="float:right">
+			
+			<tr align="center"><td style="color: navy;"><B>Notice</B></td></tr>
+			<tr><td><div><marquee direction="up" width="300px" truespeed="truespeed" onmouseover="stop()" onmouseout="start()" style="color: red;">Welcome Administrator sir.
+															     You Can Visit a lot of information
+															     about my various Branches.and Accountants
+															      </marquee></div></td></tr></table>
+
+<h3 style="color: navy;" align="center"><B>Consultant:-   javatpoint</B></h3>
+<div id="box">
+
+				<form method="post" action="#" th:action="@{/ahome}"
+					th:object="${adminUser}">
+					<div th:switch="${message}">
+						<div th:case="'Failed'" style="color: red;">
+							Login failed. Please try again
+						</div>
+					</div>
+					<table>
+						<tr>
+							<td style="color: navy;"><B> Login Form</B></td>
+						</tr>
+						<tr>
+							<td><br></td>
+						</tr>
+						<tr>
+							<td>User Name:</td>
+							<td><input type="text" th:field="*{username}" name="username" />
+							<!-- <p th:if="${#fields.hasErrors('username')}" class="label label-danger" th:errors="*{username}">Incorrect Username</p> -->
+							</td>
+							
+							<td th:if="${#fields.hasErrors('username')}" th:errors="*{username}" style="color: red;">Username error</td>
+						</tr>
+						<tr>
+							<td><br></td>
+						</tr>
+						<tr>
+							<td>Password:</td>
+							<td><input type="password" th:field="*{password}" name="userpass" />
+							<!-- <p th:if="${#fields.hasErrors('password')}" class="label label-danger" th:errors="*{password}">Incorrect Password</p> -->
+							</td>
+							<td th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: red;">Password error</td>
+						</tr>
+						<tr>
+							<td><br></td>
+						</tr>
+						<tr>
+							<td></td>
+							<td><input type="submit" value="Sign in"></td>
+						</tr>
+
+					</table>
+				</form>
+
+				<br>
+
+</div>
+
+</div>
+<div th:insert="footer :: footer"></div>
+</div>
+
+</body>
+
+</html>

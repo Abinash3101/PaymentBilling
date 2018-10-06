@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" th:href="@{/css/style.css}"
+              href="../../style/style.css" />
+</head>
+<div id="outer">
+<div th:insert="header :: header"></div>
+
+
+<div id="main">
+
+<h3 style="color: navy;" align="center"><B>Consultant:-   JavaTpoint</B></h3>
+		<div id="box">
+
+			<form method="post" name="myform" action="#" th:action="@{/asave}"
+				th:object="${accountant}">
+				<div th:switch="${message}">
+						<div th:case="'Failed'" style="color: red;">
+							some validation failed. Please check !
+						</div>
+				</div>
+				<table>
+					<tr>
+						<td>Branch:</td>
+						<td><select name="branch" th:field="*{branch}">
+								<option th:value="''" th:text="${'Select a Branch'}"></option>
+								<option th:value="Ghaziabad" th:text="Ghaziabad"></option>
+								<option th:value="Noida" th:text="Noida"></option>
+								<option th:value="Delhi" th:text="Delhi"></option>
+						</select></td>
+						<td th:if="${#fields.hasErrors('branch')}" th:errors="*{branch}" style="color: red;">branch error</td>
+					</tr>
+					<tr>
+						<td><br><input type="hidden" th:field="*{id}" name="id" /></td>
+					</tr>
+					<tr>
+						<td>Username:</td>
+						<td><input type="text" th:field="*{username}" name="username" /></td>
+						<td th:if="${#fields.hasErrors('username')}" th:errors="*{username}" style="color: red;">username error</td>
+					</tr>
+					<tr>
+						<td><br></td>
+					</tr>
+
+					<tr>
+						<td>Password:</td>
+						<td><input type="password" th:field="*{userpass}" name="userpass" /></td>
+						<td th:if="${#fields.hasErrors('userpass')}" th:errors="*{userpass}" style="color: red;">userpass error</td>
+					</tr>
+					<tr>
+						<td><br></td>
+					</tr>
+					<tr>
+						<td>Date of Joining:</td>
+						<td><input type="date" th:field="*{dateOfJoining}" name="doj" /></td>
+						<td th:if="${#fields.hasErrors('dateOfJoining')}" th:errors="*{dateOfJoining}" style="color: red;">dateOfJoining error</td>
+					</tr>
+					<tr>
+						<td><br></td>
+					</tr>
+					<tr>
+						<td>Date of Birth:</td>
+						<td><input type="date" th:field="*{dateOfBirth}" name="dob" /></td>
+						<td th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}" style="color: red;">dateOfBirth error</td>
+					</tr>
+					<tr>
+						<td><br></td>
+					</tr>
+					<tr>
+						<td>Salary:</td>
+						<td><input type="text" th:field="*{salary}" name="salary" /></td>
+						<td th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}" style="color: red;">salary error</td>
+					</tr>
+					<tr>
+						<td><br></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><input type="submit" value="save" style="padding: 2"></td>
+					</tr>
+					<tr>
+						<td><br></td>
+					</tr>
+				</table>
+				<div id="location" align="left"></div>
+			</form>
+
+		</div>
+
+	</div>
+
+
+
+
+<div th:insert="footer :: footer"></div>
+
+</div>
+
+</html>
