@@ -26,10 +26,7 @@ public class AccountantService {
 	
 	public Optional<Accountant> findAccountantById(String id) {
 		Optional<Accountant> optionalAccountant = accountantRepo.findById(Long.parseLong(id));
-		if (optionalAccountant.isPresent()) {
-			return optionalAccountant;
-		}
-		return Optional.empty();
+		return optionalAccountant;
 	}
 	
 	public String deleteAccountantById(String id) {

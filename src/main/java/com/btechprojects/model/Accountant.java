@@ -184,11 +184,8 @@ public class Accountant {
 		} else if (!username.equals(other.username))
 			return false;
 		if (userpass == null) {
-			if (other.userpass != null)
-				return false;
-		} else if (!userpass.equals(other.userpass))
-			return false;
-		return true;
+			return other.userpass == null;
+		} else return userpass.equals(other.userpass);
 	}
 
 	@Override

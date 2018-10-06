@@ -1,8 +1,7 @@
 package com.btechprojects.controller;
 
-import java.util.List;
-import java.util.Optional;
-
+import com.btechprojects.model.Accountant;
+import com.btechprojects.service.AccountantService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,8 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.btechprojects.model.Accountant;
-import com.btechprojects.service.AccountantService;
+import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class PaymentBillingAjaxController {
@@ -22,7 +21,7 @@ public class PaymentBillingAjaxController {
 	@Autowired
 	private AccountantService accountService;
 	
-	private Logger logger = LoggerFactory.getLogger(getClass());
+	private final Logger logger = LoggerFactory.getLogger(getClass());
 
 	@GetMapping("/afindname")
 	public ResponseEntity<List<Accountant>> findAccountantByName(@RequestParam(value = "val", defaultValue = "") String val,

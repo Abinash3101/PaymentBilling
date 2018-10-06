@@ -301,12 +301,9 @@ public class Student {
 		} else if (!qualification.equals(other.qualification))
 			return false;
 		if (trainer == null) {
-			if (other.trainer != null)
-				return false;
-		} else if (!trainer.equals(other.trainer))
-			return false;
-		return true;
-	}
+            return other.trainer == null;
+		} else return trainer.equals(other.trainer);
+    }
 
 	@Override
 	public String toString() {
