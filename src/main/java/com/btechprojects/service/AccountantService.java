@@ -39,4 +39,10 @@ public class AccountantService {
 		return "Accountant deleted Successfully...";
 	}
 
+    public Optional<Accountant> findByBranchAndUsernameAndUserpass(Accountant accountant) {
+        return accountantRepo.findByBranchAndUsernameAndUserpass(accountant.getBranch(),
+                accountant.getUsername(), accountant.getUserpass());
+    }
+
+
 }

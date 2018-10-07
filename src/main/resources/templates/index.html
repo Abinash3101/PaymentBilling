@@ -73,7 +73,13 @@
 			<div id="sidebar">
 				<div class="box">
 
-					<form method="post" action="#">
+					<form method="post" action="#" th:action="@{/loginprocess}"
+						  th:object="${accountant}">
+                        <div th:switch="${message}">
+                            <div th:case="'Failed'" style="color: red;">
+                                Invalid Credential. Please check !
+                            </div>
+                        </div>
 						<table>
 							<tr>
 								<td style="color: navy;"><B> Login Form</B></td>
@@ -83,26 +89,29 @@
 							</tr>
 							<tr>
 								<td>Branch:</td>
-								<td><select name="branch">
-										<option>Select a Branch</option>
-										<option>Ghaziabad</option>
-										<option>Noida</option>
-										<option>Delhi</option>
+								<td><select name="branch" th:field="*{branch}">
+									<option th:value="''" th:text="${'Select a Branch'}"></option>
+									<option th:value="Ghaziabad" th:text="Ghaziabad"></option>
+									<option th:value="Noida" th:text="Noida"></option>
+									<option th:value="Delhi" th:text="Delhi"></option>
 								</select></td>
+								<td th:if="${#fields.hasErrors('branch')}" th:errors="*{branch}" style="color: red;">branch error</td>
 							</tr>
 							<tr>
 								<td><br></td>
 							</tr>
 							<tr>
 								<td>User Name:</td>
-								<td><input type="text" name="username" /></td>
+								<td><input type="text" th:field="*{username}" name="username" /></td>
+								<td th:if="${#fields.hasErrors('username')}" th:errors="*{username}" style="color: red;">username error</td>
 							</tr>
 							<tr>
 								<td><br></td>
 							</tr>
 							<tr>
 								<td>Password:</td>
-								<td><input type="password" name="userpass" /></td>
+								<td><input type="password" th:field="*{userpass}" name="userpass" /></td>
+								<td th:if="${#fields.hasErrors('userpass')}" th:errors="*{userpass}" style="color: red;">userpass error</td>
 							</tr>
 							<tr>
 								<td><br></td>

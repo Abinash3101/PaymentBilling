@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>
+        Search
+    </title>
+    <script type="text/javascript" th:inline="javascript" th:src="@{/js/home.js}"></script>
+    <link rel="stylesheet" th:href="@{/css/style.css}"
+          href="../../style/style.css" />
+</head>
+
+<div id="outer">
+    <div th:insert="header :: header"></div>
+
+
+    <!--<%
+    String islogin=(String)session.getAttribute("islogin");
+    if(islogin==null){
+    request.setAttribute("notlogin_msg","Sorry,Please do Login first");
+    %>
+    <jsp:forward page="index.jsp"></jsp:forward>
+    <%
+    }
+    %>-->
+
+
+    <body width="100">
+
+    <div id="main">
+
+
+        <h3 style="color: navy;" align="center"><B>Consultant:-   JavaTpoint</B></h3>
+        <div id="box">
+
+            <form name="myform" >
+                <font style="color: navy;">Find:-</font>
+                <input type="text" align="right" name="findName" onkeyup="sendInfo()"></input>
+                <div id="right" align="right"></div>
+
+                <div id="location" align="left"></div>
+            </form>
+
+            <div id="bottom" align="justify"></div>
+            <div id="getgeninfo" align="justify"></div>
+        </div>
+
+    </div>
+
+    </body>
+
+
+    <div th:insert="footer :: footer"></div>
+
+</div>
+
+</html>

@@ -4,6 +4,8 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,10 +24,13 @@ public class PaymentBillingController {
 	
 	@Autowired
 	AccountantService accountService;
+
+    private final Logger logger = LoggerFactory.getLogger(getClass());
 	
 	@GetMapping("/")
-	public String welcomePage() {
-		return "index";
+	public String welcomePage(Model model) {
+        model.addAttribute("accountant", new Accountant());
+	    return "index";
 	}
 	
 	@GetMapping("/admin")
@@ -53,11 +58,9 @@ public class PaymentBillingController {
 	@PostMapping("/asave")
 	public String saveAccountant(@Valid @ModelAttribute Accountant accountant, BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
-			System.out.println(accountant);
 			model.addAttribute("message", "Failed");
             return "create";
         }
-		System.out.println(accountant);
 		model.addAttribute("message", accountService.saveAccountant(accountant));
 		return "ahome";
 	}
@@ -67,6 +70,17 @@ public class PaymentBillingController {
 		Optional<Accountant> optionalAccountant = accountService.findAccountantById(id);
 		model.addAttribute("accountant", optionalAccountant.get());
 		return "create";
+	}
+
+	@PostMapping("/loginprocess")
+	public String loginProcess(@ModelAttribute Accountant accountant, Model model) {
+        Optional<Accountant> optionalAccountant = accountService.findByBranchAndUsernameAndUserpass(accountant);
+        if (!optionalAccountant.isPresent()) {
+            model.addAttribute("message", "Failed");
+            return "index";
+        }
+        logger.info("Logged in User: {}", optionalAccountant.get());
+		return "home";
 	}
 	
 	/*@GetMapping("/ahome")
