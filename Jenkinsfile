@@ -1,6 +1,6 @@
 node {
     stage('Configure') {
-        env.PATH = "${tool 'maven-3.5.4'}/bin:${env.PATH}"
+        env.PATH = "${tool 'localMaven'}/bin:${env.PATH}"
         version = '1.0.' + env.BUILD_NUMBER
         currentBuild.displayName = version;
     }
