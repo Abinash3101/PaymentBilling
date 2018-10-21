@@ -10,7 +10,7 @@ node {
     }
 
     stage('Version') {
-        sh "echo \'\ninfo.build.version=\'$version >> src/main/resources/application.properties || true"
+        //sh "echo \'\ninfo.build.version=\'$version >> src/main/resources/application.properties || true"
         sh "mvn -B -V -U -e version:set -DnewVersion=$version"
     }
 
